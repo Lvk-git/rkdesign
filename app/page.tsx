@@ -4,6 +4,7 @@ import Footer from '@/components/layout/Footer';
 import ServicesPreview from '@/components/home/ServicesPreview';
 import FeaturedProjects from '@/components/home/FeaturedProjects';
 import Stats from '@/components/home/Stats';
+import Testimonials from '@/components/home/Testimonials';
 import CTASection from '@/components/home/CTASection';
 import { siteData } from '@/lib/data';
 
@@ -42,6 +43,7 @@ export default function HomePage() {
             <ServicesPreview />
             <FeaturedProjects />
             <Stats stats={siteData.stats} />
+            <Testimonials />
             <CTASection />
             <Footer />
         </main>

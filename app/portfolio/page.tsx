@@ -2,20 +2,63 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { siteData } from '@/lib/data';
 import styles from './portfolio.module.css';
 
+// Dynamically import CircularGallery to avoid SSR issues with WebGL
+const CircularGallery = dynamic(() => import('@/components/ui/CircularGallery'), {
+    ssr: false,
+    loading: () => (
+        <div className="w-full h-full flex items-center justify-center">
+            <div className="w-8 h-8 border-4 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
+        </div>
+    )
+});
+
 export default function PortfolioPage() {
     const { portfolio } = siteData;
-    const [activeCategory, setActiveCategory] = useState('All');
+    const [activeCategory, setActiveCategory] = useState('Elevation');
     const [isVisible, setIsVisible] = useState(false);
     const gridRef = useRef<HTMLDivElement>(null);
+    const galleryAppRef = useRef<any>(null);
 
-    const filteredProjects = activeCategory === 'All'
-        ? portfolio.projects
-        : portfolio.projects.filter(p => p.category === activeCategory);
+    const filteredProjects = portfolio.projects.filter(p => p.category === activeCategory);
+
+    // Gallery items organized by category
+    const galleryData: Record<string, { image: string; text: string }[]> = {
+        'Elevation': [
+            { image: '/assets/images/portfolio/elevation_modern.webp', text: 'Modern Elevation' },
+            { image: '/assets/images/portfolio/elevation_classic.webp', text: 'Classic Design' },
+            { image: '/assets/images/portfolio/elevation_commercial.webp', text: 'Commercial Space' },
+        ],
+        'Architecture': [
+            { image: '/assets/images/portfolio/architecture_resort.webp', text: 'Luxury Resort' },
+            { image: '/assets/images/portfolio/architecture_campus.webp', text: 'Campus Design' },
+            { image: '/assets/images/portfolio/architecture_apartment.webp', text: 'Apartment Complex' },
+        ],
+        'Interior': [
+            { image: '/assets/images/portfolio/interior_living.webp', text: 'Living Room' },
+            { image: '/assets/images/portfolio/interior_lobby.webp', text: 'Hotel Lobby' },
+            { image: '/assets/images/portfolio/interior_office.webp', text: 'Office Space' },
+        ]
+    };
+
+    const handlePrevious = () => {
+        if (galleryAppRef.current) {
+            const width = galleryAppRef.current.medias?.[0]?.width || 0;
+            galleryAppRef.current.scroll.target -= width;
+        }
+    };
+
+    const handleNext = () => {
+        if (galleryAppRef.current) {
+            const width = galleryAppRef.current.medias?.[0]?.width || 0;
+            galleryAppRef.current.scroll.target += width;
+        }
+    };
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -41,6 +84,12 @@ export default function PortfolioPage() {
         return () => clearTimeout(timer);
     }, [activeCategory]);
 
+    const currentGalleryItems = galleryData[activeCategory];
+    const showGallery = currentGalleryItems;
+
+    // Filter out 'All' from categories
+    const filteredCategories = portfolio.categories.filter(cat => cat !== 'All');
+
     return (
         <main>
             <Navbar />
@@ -51,18 +100,17 @@ export default function PortfolioPage() {
                     <span className={styles.preTitle}>Our Work</span>
                     <h1 className={styles.heroTitle}>Portfolio</h1>
                     <p className={styles.heroDescription}>
-                        Explore our collection of architectural masterpieces, from stunning
-                        elevations to exquisite interiors.
+                        Explore our collection of architectural masterpieces in an immersive 3D experience.
                     </p>
                 </div>
                 <div className={styles.heroPattern}></div>
             </section>
 
-            {/* Filter Section */}
+            {/* Filter Section with Integrated Gallery */}
             <section className={styles.filterSection}>
                 <div className={styles.container}>
                     <div className={styles.filterTabs}>
-                        {portfolio.categories.map((category) => (
+                        {filteredCategories.map((category) => (
                             <button
                                 key={category}
                                 className={`${styles.filterTab} ${activeCategory === category ? styles.active : ''}`}
@@ -72,52 +120,50 @@ export default function PortfolioPage() {
                             </button>
                         ))}
                     </div>
-                </div>
-            </section>
 
-            {/* Portfolio Grid */}
-            <section className={styles.portfolioSection}>
-                <div className={styles.container}>
-                    <div
-                        ref={gridRef}
-                        className={`${styles.grid} ${isVisible ? styles.visible : ''}`}
-                    >
-                        {filteredProjects.map((project, index) => (
-                            <div
-                                key={project.id}
-                                className={styles.projectCard}
-                                style={{ animationDelay: `${index * 0.1}s` }}
-                            >
-                                <div className={styles.imageWrapper}>
-                                    <Image
-                                        src={project.image}
-                                        alt={project.title}
-                                        fill
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        className={styles.image}
-                                        unoptimized
+                    {/* Circular Gallery - Only show for specific categories */}
+                    {showGallery && (
+                        <div className={styles.galleryWrapper}>
+                            <h2 className={styles.galleryTitle}>
+                                {activeCategory} Gallery
+                            </h2>
+                            <p className={styles.gallerySubtitle}>
+                                Drag, scroll, or use arrow buttons to explore
+                            </p>
+                            <div className={styles.galleryWithControls}>
+                                <button
+                                    className={`${styles.navButton} ${styles.navButtonLeft}`}
+                                    onClick={handlePrevious}
+                                    aria-label="Previous image"
+                                >
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M15 18l-6-6 6-6" />
+                                    </svg>
+                                </button>
+                                <div className={styles.galleryContainer}>
+                                    <CircularGallery
+                                        key={activeCategory}
+                                        items={currentGalleryItems}
+                                        bend={1.8}
+                                        textColor="#1a1a2e"
+                                        borderRadius={0.05}
+                                        scrollSpeed={2}
+                                        scrollEase={0.08}
+                                        onAppReady={(app) => { galleryAppRef.current = app; }}
                                     />
-                                    <div className={styles.overlay}>
-                                        <div className={styles.overlayContent}>
-                                            <span className={styles.projectCategory}>{project.category}</span>
-                                            <h3 className={styles.projectTitle}>{project.title}</h3>
-                                            <div className={styles.projectMeta}>
-                                                <span className={styles.location}>
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                                        <circle cx="12" cy="10" r="3" />
-                                                    </svg>
-                                                    {project.location}
-                                                </span>
-                                                <span className={styles.year}>{project.year}</span>
-                                            </div>
-                                            <p className={styles.client}>Client: {project.client}</p>
-                                        </div>
-                                    </div>
                                 </div>
+                                <button
+                                    className={`${styles.navButton} ${styles.navButtonRight}`}
+                                    onClick={handleNext}
+                                    aria-label="Next image"
+                                >
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M9 18l6-6-6-6" />
+                                    </svg>
+                                </button>
                             </div>
-                        ))}
-                    </div>
+                        </div>
+                    )}
                 </div>
             </section>
 
