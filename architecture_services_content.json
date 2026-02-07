@@ -20,7 +20,7 @@
         "Structural Analysis",
         "Sustainable Building Design"
       ],
-      "image": "https://placehold.co/1920x1080/282c34/ffffff?text=Architecture+Service"
+      "image": "/assets/images/hero/service_architecture.webp"
     },
     {
       "id": "interior",
@@ -32,7 +32,7 @@
         "Lighting Design",
         "Material & Color Consultation"
       ],
-      "image": "https://placehold.co/1920x1080/e0e0e0/282c34?text=Interior+Design+Service"
+      "image": "/assets/images/hero/service_interior.webp"
     },
     {
       "id": "renovation",
@@ -44,7 +44,7 @@
         "Facade Facelifts",
         "Adaptive Reuse"
       ],
-      "image": "https://placehold.co/1920x1080/282c34/ffffff?text=Renovation+Service"
+      "image": "/assets/images/hero/service_renovation.webp"
     },
     {
       "id": "vastu",
@@ -56,7 +56,7 @@
         "Directional Alignment",
         "Energy Balancing"
       ],
-      "image": "https://placehold.co/1920x1080/e0e0e0/282c34?text=Vastu+Consultation+Service"
+      "image": "/assets/images/hero/service_vastu.webp"
     },
     {
       "id": "construction",
@@ -68,8 +68,8 @@
         "Quality Control",
         "Timely Delivery"
       ],
-      "image": "https://placehold.co/1920x1080/282c34/ffffff?text=Construction+Service"
-    }
+      "image": "/assets/images/hero/service_construction.webp"
+    },
   ],
   "portfolio": {
     "elevation": [
@@ -78,21 +78,21 @@
         "title": "Modern Minimalist Villa",
         "location": "Pune, India",
         "client": "Mr. Sharma",
-        "image": "https://placehold.co/800x600/282c34/ffffff?text=Elevation+Modern+Villa"
+        "image": "/assets/images/portfolio/elevation_modern.webp"
       },
       {
         "id": "elev_2",
         "title": "Contemporary Office Facade",
         "location": "Bangalore, India",
         "client": "TechSolutions Pvt Ltd",
-        "image": "https://placehold.co/800x600/e0e0e0/282c34?text=Elevation+Commercial"
+        "image": "/assets/images/portfolio/elevation_commercial.webp"
       },
       {
         "id": "elev_3",
         "title": "Classic Heritage Home",
         "location": "Jaipur, India",
         "client": "Mrs. Rathore",
-        "image": "https://placehold.co/800x600/282c34/ffffff?text=Elevation+Classic"
+        "image": "/assets/images/portfolio/elevation_classic.webp"
       }
     ],
     "architecture": [
@@ -101,21 +101,21 @@
         "title": "Skyline Heights Apartments",
         "location": "Mumbai, India",
         "client": "Skyline Developers",
-        "image": "https://placehold.co/800x600/e0e0e0/282c34?text=Architecture+Apartment"
+        "image": "/assets/images/portfolio/architecture_apartment.webp"
       },
       {
         "id": "arch_2",
         "title": "Green Valley Resort",
         "location": "Lonavala, India",
         "client": "Green Valley Group",
-        "image": "https://placehold.co/800x600/282c34/ffffff?text=Architecture+Resort"
+        "image": "/assets/images/portfolio/architecture_resort.webp"
       },
       {
         "id": "arch_3",
         "title": "Institutional Campus",
         "location": "Hyderabad, India",
         "client": "Knowledge Trust",
-        "image": "https://placehold.co/800x600/e0e0e0/282c34?text=Architecture+Campus"
+        "image": "/assets/images/portfolio/architecture_campus.webp"
       }
     ],
     "interior": [
@@ -124,21 +124,21 @@
         "title": "Luxury Penthouse Living",
         "location": "Delhi, India",
         "client": "Mr. Kapoor",
-        "image": "https://placehold.co/800x600/282c34/ffffff?text=Interior+Living+Room"
+        "image": "/assets/images/portfolio/interior_living.webp"
       },
       {
         "id": "int_2",
         "title": "Corporate Office Workspace",
         "location": "Gurgaon, India",
         "client": "Global Corp",
-        "image": "https://placehold.co/800x600/e0e0e0/282c34?text=Interior+Office"
+        "image": "/assets/images/portfolio/interior_office.webp"
       },
       {
         "id": "int_3",
         "title": "Boutique Hotel Lobby",
         "location": "Goa, India",
         "client": "Seaside Hotels",
-        "image": "https://placehold.co/800x600/282c34/ffffff?text=Interior+Hotel+Lobby"
+        "image": "/assets/images/portfolio/interior_lobby.webp"
       }
     ]
   }

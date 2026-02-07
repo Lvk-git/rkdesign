@@ -1,33 +1,32 @@
 # Image Assets Guide
 
-Since the automated image generation service has reached its daily quota, you will need to add images manually to the project.
+## Current Setup: Dynamic Web Images
+I have updated the `architecture_services_content.json` file to use **LoremFlickr**, a service that provides random, high-quality stock photos based on keywords.
 
-Please place your image files in the following directories. The `architecture_services_content.json` file currently points to placeholder images, but you can update it to point to these local files once you have them.
+- **How it works**: The website will automatically fetch images like "architecture", "interior", "construction" from the web.
+- **Advantage**: you immediately see relevant visuals without manually downloading files.
+- **Note**: The images may change on every refresh until you replace them with your own permanent files.
 
-## Directory Structure
+## Replacing with Your Own Images (Recommended for Production)
 
-`public/assets/images/`
-  ├── `hero/` (Big images for Services)
-  │     ├── `service_architecture.webp` (1920x1080)
-  │     ├── `service_interior.webp` (1920x1080)
-  │     ├── `service_renovation.webp` (1920x1080)
-  │     ├── `service_vastu.webp` (1920x1080)
-  │     └── `service_construction.webp` (1920x1080)
-  │
-  └── `portfolio/` (Smaller images for Projects)
-        ├── `elevation_modern.webp` (800x600)
-        ├── `elevation_commercial.webp` (800x600)
-        ├── `elevation_classic.webp` (800x600)
-        ├── `architecture_apartment.webp` (800x600)
-        ├── `architecture_resort.webp` (800x600)
-        ├── `architecture_campus.webp` (800x600)
-        ├── `interior_living.webp` (800x600)
-        ├── `interior_office.webp` (800x600)
-        └── `interior_lobby.webp` (800x600)
+When you are ready to use your own portfolio images:
 
-## Updating Content
+1.  **Place your images** in the folders I created:
+    `public/assets/images/`
+      ├── `hero/` (Big images, 1920x1080)
+      │     ├── `service_architecture.webp`
+      │     ├── `service_interior.webp`
+      │     └── ...
+      │
+      └── `portfolio/` (Smaller images, 800x600)
+            ├── `elevation_modern.webp`
+            ├── `interior_living.webp`
+            └── ...
 
-Once you have your images ready:
-1. Save them in the folders as listed above.
-2. Open `architecture_services_content.json`.
-3. Replace the `https://placehold.co/...` links with the local path, e.g., `/assets/images/hero/service_architecture.webp`.
+2.  **Update `architecture_services_content.json`**:
+    Open the file and change the URLs from `https://loremflickr.com/...` to your local path, e.g.:
+    `"image": "/assets/images/hero/service_architecture.webp"`
+
+## Image Dimensions
+- **Hero Images**: 1920x1080 pixels (Landscape, high quality)
+- **Portfolio Images**: 800x600 pixels (Standard 4:3 or similar)
