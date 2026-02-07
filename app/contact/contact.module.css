@@ -1,0 +1,475 @@
+/* Contact Page Hero */
+.hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: calc(var(--header-height) + var(--space-16));
+    padding-bottom: var(--space-16);
+    background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+    overflow: hidden;
+}
+
+.heroContent {
+    text-align: center;
+    max-width: 700px;
+    padding: 0 var(--container-padding);
+    position: relative;
+    z-index: 1;
+}
+
+.preTitle {
+    display: inline-block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: var(--space-4);
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: var(--text-6xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-6);
+    animation: fadeInUp 0.6s ease 0.2s forwards;
+    opacity: 0;
+}
+
+.heroDescription {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    animation: fadeInUp 0.6s ease 0.4s forwards;
+    opacity: 0;
+}
+
+.heroPattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 25% 25%, rgba(201, 169, 98, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(26, 26, 46, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Contact Section */
+.contactSection {
+    padding: var(--section-padding) 0;
+    background: var(--color-bg);
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.contactGrid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-12);
+    align-items: start;
+}
+
+/* Form Wrapper */
+.formWrapper {
+    background: var(--color-surface);
+    padding: var(--space-10);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+.formTitle {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: var(--space-8);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.label {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.input,
+.select,
+.textarea {
+    padding: var(--space-4);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(201, 169, 98, 0.1);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+    color: var(--color-text-muted);
+}
+
+.select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 20px;
+    padding-right: 44px;
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.submitButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    padding: var(--space-5) var(--space-8);
+    background: var(--color-accent);
+    color: var(--color-primary);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.submitButton:hover:not(:disabled) {
+    background: var(--color-accent-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.submitButton:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(26, 26, 46, 0.3);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+/* Success Message */
+.successMessage {
+    text-align: center;
+    padding: var(--space-12) var(--space-8);
+}
+
+.successIcon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+    color: var(--color-primary);
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-6);
+    animation: scaleIn 0.5s ease;
+}
+
+.successMessage h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+}
+
+.successMessage p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-6);
+}
+
+.resetButton {
+    padding: var(--space-3) var(--space-6);
+    background: transparent;
+    color: var(--color-accent);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 2px solid var(--color-accent);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.resetButton:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+}
+
+/* Info Card */
+.infoWrapper {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-8));
+}
+
+.infoCard {
+    background: var(--color-primary);
+    padding: var(--space-10);
+    border-radius: var(--radius-xl);
+    color: var(--color-text-inverse);
+}
+
+.infoTitle {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+}
+
+.infoDescription {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    margin-bottom: var(--space-8);
+}
+
+.infoList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+}
+
+.infoItem {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.infoIcon {
+    width: 48px;
+    height: 48px;
+    background: rgba(201, 169, 98, 0.2);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--color-accent);
+}
+
+.infoItem h4 {
+    font-size: var(--text-base);
+    font-weight: 600;
+    margin-bottom: var(--space-1);
+    color: var(--color-text-inverse);
+}
+
+.infoItem p,
+.infoItem a {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.7);
+    transition: color var(--transition-fast);
+}
+
+.infoItem a:hover {
+    color: var(--color-accent);
+}
+
+/* Social Section */
+.socialSection {
+    padding-top: var(--space-6);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.socialSection h4 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.socialLinks {
+    display: flex;
+    gap: var(--space-3);
+}
+
+.socialLinks a {
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-inverse);
+    transition: all var(--transition-base);
+}
+
+.socialLinks a:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+/* Map Section */
+.mapSection {
+    height: 400px;
+}
+
+.mapPlaceholder {
+    height: 100%;
+    background: linear-gradient(135deg, var(--color-bg-alt) 0%, var(--color-border) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mapContent {
+    text-align: center;
+    padding: var(--space-8);
+}
+
+.mapIcon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: var(--space-4);
+}
+
+.mapContent h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+}
+
+.mapContent p {
+    color: var(--color-text-secondary);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .contactGrid {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+    }
+
+    .infoWrapper {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .heroTitle {
+        font-size: var(--text-4xl);
+    }
+
+    .formWrapper {
+        padding: var(--space-6);
+    }
+
+    .formRow {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
+
+    .infoCard {
+        padding: var(--space-6);
+    }
+
+    .mapSection {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .formWrapper {
+        padding: var(--space-4);
+    }
+
+    .infoCard {
+        padding: var(--space-4);
+    }
+
+    .infoItem {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-3);
+    }
+}
