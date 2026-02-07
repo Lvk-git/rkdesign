@@ -1,0 +1,145 @@
+{
+  "companyInfo": {
+    "name": "RK Design",
+    "tagline": "Building Dreams with Precision and Elegance",
+    "description": "We specialize in creating sustainable, functional, and aesthetically pleasing architectural solutions tailored to your specific needs.",
+    "contact": {
+      "phone": "+91-9876543210",
+      "email": "info@rkdesign.com",
+      "location": "Mumbai, India"
+    }
+  },
+  "services": [
+    {
+      "id": "architecture",
+      "title": "Architecture",
+      "description": "Comprehensive architectural design services for residential, commercial, and institutional projects. We focus on innovation, sustainability, and functionality.",
+      "features": [
+        "Conceptual Design & Planning",
+        "3D Modeling & Visualization",
+        "Structural Analysis",
+        "Sustainable Building Design"
+      ],
+      "image": "https://placehold.co/1920x1080/282c34/ffffff?text=Architecture+Service"
+    },
+    {
+      "id": "interior",
+      "title": "Interior Design",
+      "description": "Transforming spaces into inspiring environments. Our interior design services blend style with comfort to create unique living and working spaces.",
+      "features": [
+        "Space Planning",
+        "Furniture Selection & Customization",
+        "Lighting Design",
+        "Material & Color Consultation"
+      ],
+      "image": "https://placehold.co/1920x1080/e0e0e0/282c34?text=Interior+Design+Service"
+    },
+    {
+      "id": "renovation",
+      "title": "Renovation",
+      "description": "Revitalize your existing property with our expert renovation services. We modernize old structures while preserving their original charm.",
+      "features": [
+        "Structural Reinforcement",
+        "Modernization & Upgrades",
+        "Facade Facelifts",
+        "Adaptive Reuse"
+      ],
+      "image": "https://placehold.co/1920x1080/282c34/ffffff?text=Renovation+Service"
+    },
+    {
+      "id": "vastu",
+      "title": "Vastu Consultation",
+      "description": "Harmonize your space with ancient wisdom. Our Vastu experts provide guidance to ensure your building promotes health, wealth, and prosperity.",
+      "features": [
+        "Site Analysis & Selection",
+        "Layout Corrections",
+        "Directional Alignment",
+        "Energy Balancing"
+      ],
+      "image": "https://placehold.co/1920x1080/e0e0e0/282c34?text=Vastu+Consultation+Service"
+    },
+    {
+      "id": "construction",
+      "title": "Construction",
+      "description": "Turnkey construction services delivering high-quality execution. We manage everything from ground-breaking to final handover.",
+      "features": [
+        "Project Management",
+        "Civil Works",
+        "Quality Control",
+        "Timely Delivery"
+      ],
+      "image": "https://placehold.co/1920x1080/282c34/ffffff?text=Construction+Service"
+    }
+  ],
+  "portfolio": {
+    "elevation": [
+      {
+        "id": "elev_1",
+        "title": "Modern Minimalist Villa",
+        "location": "Pune, India",
+        "client": "Mr. Sharma",
+        "image": "https://placehold.co/800x600/282c34/ffffff?text=Elevation+Modern+Villa"
+      },
+      {
+        "id": "elev_2",
+        "title": "Contemporary Office Facade",
+        "location": "Bangalore, India",
+        "client": "TechSolutions Pvt Ltd",
+        "image": "https://placehold.co/800x600/e0e0e0/282c34?text=Elevation+Commercial"
+      },
+      {
+        "id": "elev_3",
+        "title": "Classic Heritage Home",
+        "location": "Jaipur, India",
+        "client": "Mrs. Rathore",
+        "image": "https://placehold.co/800x600/282c34/ffffff?text=Elevation+Classic"
+      }
+    ],
+    "architecture": [
+      {
+        "id": "arch_1",
+        "title": "Skyline Heights Apartments",
+        "location": "Mumbai, India",
+        "client": "Skyline Developers",
+        "image": "https://placehold.co/800x600/e0e0e0/282c34?text=Architecture+Apartment"
+      },
+      {
+        "id": "arch_2",
+        "title": "Green Valley Resort",
+        "location": "Lonavala, India",
+        "client": "Green Valley Group",
+        "image": "https://placehold.co/800x600/282c34/ffffff?text=Architecture+Resort"
+      },
+      {
+        "id": "arch_3",
+        "title": "Institutional Campus",
+        "location": "Hyderabad, India",
+        "client": "Knowledge Trust",
+        "image": "https://placehold.co/800x600/e0e0e0/282c34?text=Architecture+Campus"
+      }
+    ],
+    "interior": [
+      {
+        "id": "int_1",
+        "title": "Luxury Penthouse Living",
+        "location": "Delhi, India",
+        "client": "Mr. Kapoor",
+        "image": "https://placehold.co/800x600/282c34/ffffff?text=Interior+Living+Room"
+      },
+      {
+        "id": "int_2",
+        "title": "Corporate Office Workspace",
+        "location": "Gurgaon, India",
+        "client": "Global Corp",
+        "image": "https://placehold.co/800x600/e0e0e0/282c34?text=Interior+Office"
+      },
+      {
+        "id": "int_3",
+        "title": "Boutique Hotel Lobby",
+        "location": "Goa, India",
+        "client": "Seaside Hotels",
+        "image": "https://placehold.co/800x600/282c34/ffffff?text=Interior+Hotel+Lobby"
+      }
+    ]
+  }
+}
